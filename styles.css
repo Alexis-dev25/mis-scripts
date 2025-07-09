@@ -37,7 +37,7 @@ header {
 }
 
 .correos {
-    margin-top: 40px;
+    margin-top: 20px;
     background-color: rgb(16, 0, 85);
     padding: 10px 20px;
     color: white;
@@ -46,7 +46,7 @@ header {
     font-weight: bold;
 }
 .juegos {
-    margin-top: 40px;
+    margin-top: 20px;
     background-color: rgb(16, 0, 85);
     padding: 10px 20px;
     color: white;
@@ -55,6 +55,8 @@ header {
     font-weight: bold;
 }
 footer {
+    margin-top: 20px;
+    padding: 10px 20px;
     background-color: black;
     color: white;
 }
