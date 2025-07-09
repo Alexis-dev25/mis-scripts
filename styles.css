@@ -1,0 +1,61 @@
+/* styles.css */
+::selection {
+    background: #e01a00;
+    color: #ffffff;
+}
+
+/* Selección específica para los links */
+a::selection {
+    background: #2cbb00;
+    color: #fff;
+}
+
+a {
+    color: #be0000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Suaviza el cambio */
+}
+
+a:hover {
+    color: #00ccff;            /* Cambia el color del texto */
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url("fondo.jpg");
+    line-height: 10px;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    background: rgb(16, 0, 85);
+    color: white;
+    padding: 30px 0;
+    border-radius: 10px;
+}
+
+.correos {
+    margin-top: 40px;
+    background-color: rgb(16, 0, 85);
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.juegos {
+    margin-top: 40px;
+    background-color: rgb(16, 0, 85);
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;;
+    border-radius: 10px;
+    font-weight: bold;
+}
+footer {
+    background-color: black;
+    color: white;
+}
