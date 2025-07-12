@@ -1,26 +1,122 @@
 /* styles.css */
 ::selection {
-    background: #e01a00;
-    color: #ffffff;
+    background: #ff4757;
+    color: white;
 }
 
-/* Selección específica para los links */
-a::selection {
-    background: #2cbb00;
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.header-animation {
+    animation: fadeIn 0.5s ease-out, pulse 2s infinite 1s;
+}
+
+.footer-animation {
+    animation: fadeIn 1s ease-out;
+}
+
+.hover-effect {
+    transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.social-icon {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos mejorados */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url("fondo.jpg");
+    background-size: cover;
+    background-attachment: fixed;
     color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+    padding: 30px 0;
+    border-radius: 10px;
+    margin: 20px auto;
+    margin-bottom: 20px;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.util, .juegos, .creditos {
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.util {
+    background: linear-gradient(135deg, #1f1e72, #542a98);
+}
+
+.juegos {
+    background: linear-gradient(135deg, #1f1e72, #542a98);
+}
+
+.creditos {
+    background: linear-gradient(135deg, #1f1e72, #542a98);
+}
+.correo, .password, .math, .PPoT, .moneda {
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    color: white;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
 }
 
 a {
-    color: #be0000;
+    color: #00e5ff;
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.3s ease; /* Suaviza el cambio */
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    color: #00ccff;            /* Cambia el color del texto */
+    color: #00e5ff;
+    text-shadow: 0 0 5px rgba(0,229,255,0.5);
 }
 
+h2 {
+    font-size: 25px;
+}
 body {
     font-family: 'Segoe UI', sans-serif;
     background-image: url("fondo.jpg");
@@ -36,14 +132,24 @@ header {
     border-radius: 10px;
 }
 
-.correos {
+.util {
     margin-top: 20px;
     background-color: rgb(16, 0, 85);
     padding: 10px 20px;
     color: white;
-    text-decoration: none;;
+    text-decoration: none;
     border-radius: 10px;
     font-weight: bold;
+}
+.correo{
+    margin-top: 20px;
+    background-color: rgba(32, 21, 90, 0.493);
+    padding: 10px 20px;
+}
+.password {
+    margin-top: 20px;
+    background-color: rgba(32, 21, 90, 0.493);
+    padding: 10px 20px;
 }
 .juegos {
     margin-top: 20px;
@@ -52,11 +158,48 @@ header {
     color: white;
     text-decoration: none;;
     border-radius: 10px;
+}
+.math {
+    margin-top: 20px;
+    background-color: rgba(32, 21, 90, 0.493);
+    padding: 10px 20px;
+    font-weight: bold;
+}
+.PPoT {
+    margin-top: 20px;
+    background-color: rgb(33, 21, 90, 0.493);
+    padding: 10px 20px;
+    font-weight: bold;
+}
+.moneda {
+    margin-top: 20px;
+    background-color: rgb(33, 21, 90, 0.493);
+    padding: 10px 20px;
     font-weight: bold;
 }
 footer {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: black;
     color: white;
+}
+.creditos {
+    margin-top: 20px;
+    background-color: rgb(16, 0, 85);
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.lenguajes {
+    margin-top: 20px;
+    background-color: rgb(33, 21, 90, 0.493);
+    padding: 10px 20px;
+    font-weight: bold;
+}
+.redes {
+    margin-top: 20px;
+    background-color: rgb(33, 21, 90, 0.493);
+    padding: 10px 20px;
+    font-weight: bold;
 }
