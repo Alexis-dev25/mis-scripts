@@ -83,9 +83,7 @@ header {
     background: linear-gradient(135deg, #1f1e72, #542a98);
 }
 
-.creditos {
-    background: linear-gradient(135deg, #1f1e72, #542a98);
-}
+
 .correo, .password, .math, .PPoT, .moneda {
     margin: 15px 0;
     padding: 15px;
