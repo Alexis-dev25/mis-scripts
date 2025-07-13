@@ -1,7 +1,11 @@
 /* styles.css */
 ::selection {
-    background: #ff4757;
-    color: white;
+    background: red;
+    color: whitesmoke;
+}
+a::selection {
+    background: darkcyan;
+    color: whitesmoke;
 }
 
 /* Animaciones */
@@ -83,7 +87,9 @@ header {
     background: linear-gradient(135deg, #1f1e72, #542a98);
 }
 
-
+.creditos {
+    background: linear-gradient(135deg, #1f1e72, #542a98);
+}
 .correo, .password, .math, .PPoT, .moneda {
     margin: 15px 0;
     padding: 15px;
@@ -143,6 +149,13 @@ header {
     margin-top: 20px;
     background-color: rgba(32, 21, 90, 0.493);
     padding: 10px 20px;
+}
+.correo-img {
+    margin-top: 20px;
+    width: 300px;
+    height: auto;
+    max-width: 600px;
+    border-radius: 7px;
 }
 .password {
     margin-top: 20px;
