@@ -188,6 +188,12 @@ header {
     padding: 10px 20px;
     font-weight: bold;
 }
+.dados {
+    margin-top: 20px;
+    background-color: rgb(33, 21, 90, 0.493);
+    padding: 10px 20px;
+    font-weight: bold;
+}
 footer {
     margin-top: 20px;
     padding: 10px 20px;
