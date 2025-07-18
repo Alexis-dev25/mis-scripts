@@ -1,0 +1,145 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: white;
+    color: black;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+    background: #121212;
+    color: white;
+    }
+    .container {
+    background: rgba(30, 30, 30, 0.9);
+    color: white;
+    }
+    h1, .vs {
+    color: #ffffff;
+    }
+}
+
+.dark-mode {
+    background: #121212 !important;
+    color: white !important;
+}
+
+.dark-mode .container {
+    background: rgba(30, 30, 30, 0.9) !important;
+    color: white;
+}
+
+.dark-mode h1, .dark-mode .vs, .dark-mode .players, .dark-mode .result{
+    color: #ffffff !important;
+}
+.dark-mode .choice {
+    background-color: #121212;
+}
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    color: black;
+    margin-bottom: 2rem;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.choice {
+    font-size: 2.5rem;
+    padding: 1rem;
+    border: none;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+}
+
+.choice:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.choice:active {
+    transform: scale(0.95);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.players {
+    display: flex;
+    justify-content: center;
+    color: black;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.player {
+    text-align: center;
+}
+
+.player-choice {
+    font-size: 3rem;
+    margin: 1rem 0;
+    min-width: 80px;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vs {
+    color:black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.result {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    min-height: 2rem;
+    color: black;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.winner {
+    animation: bounce 0.5s ease-in-out;
+    color: #000000;
+}
+
+.loser {
+    color: #000000;
+}
+
+.tie {
+    color: #000000;
+}

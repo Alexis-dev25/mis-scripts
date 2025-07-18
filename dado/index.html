@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Dados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Juego de Dados 🎲</h1>
+        
+        <div class="theme-toggle" id="themeToggle">
+            🌓
+        </div>
+        
+        <label for="rolls">¿Cuántas veces quieres tirar el dado?</label>
+        <input type="number" id="rolls" min="1" value="10">
+        <button id="playButton">Jugar</button>
+        
+        <div id="dice" class="dice"></div>
+        
+        <table class="results" id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Cara</th>
+                    <th>Veces</th>
+                </tr>
+            </thead>
+            <tbody id="resultsBody">
+            </tbody>
+        </table>
+        
+        <button id="playAgainButton">Jugar otra vez</button>
+    </div>
+
+    <script src="dado.js"></script>
+</body>
+</html>

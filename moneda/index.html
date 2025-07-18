@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Cara o Cruz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 1.5rem;">Cara o Cruz</h1>
+        <div class="coin" id="coin">
+            <div class="side cara"></div>
+            <div class="side cruz"></div>
+        </div>
+        <div class="buttons">
+            <button onclick="elegirLado('cara')">Cara</button>
+            <button onclick="elegirLado('cruz')">Cruz</button>
+        </div>
+        <div id="resultado" class="resultado"></div>
+    </div>
+    <audio id="flipSound" src="https://assets.mixkit.co/sfx/preview/mixkit-coin-flip-1940.mp3"></audio>
+    <audio id="winSound" src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3"></audio>
+    <audio id="loseSound" src="https://assets.mixkit.co/sfx/preview/mixkit-retro-arcade-lose-2027.mp3"></audio>
+    <script src="moneda.js"></script>
+</body>
+</html>

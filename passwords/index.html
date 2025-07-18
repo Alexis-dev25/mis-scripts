@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas Seguras</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #151922;
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #151922;
+            padding: 20px;
+            border: 2px solid white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .mayus , .num , .sym {
+            background-color: #333;
+            border: 1px solid white;
+            padding: 5px 5px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            background-color: #636363;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #0c0c0c;
+            color: whitesmoke;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #password-display {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #636363;
+            border-radius: 4px;
+            font-size: 18px;
+            text-align: center;
+            word-break: break-all;
+        }
+
+        .strength-meter {
+            height: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .strength-weak {
+            background-color: #e74c3c;
+            width: 33%;
+        }
+
+        .strength-medium {
+            background-color: #127bf3;
+            width: 66%;
+        }
+
+        .strength-strong {
+            background-color: #2ecc71;
+            width: 100%;
+        }
+
+        .copy-btn {
+            background-color: #777777;
+        }
+
+        .copy-btn:hover {
+            background-color: #b8b8b8;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            button {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Contraseñas Seguras</h1>
+        
+        <div class="form-group">
+            <label for="company">Nombre de la compañía: (opcional)</label>
+            <input type="text" id="company" placeholder="Ej: Google">
+        </div>
+        
+        <div class="form-group">
+            <label for="length">Longitud de la contraseña:</label>
+            <select id="length">
+                <option value="8">8 caracteres</option>
+                <option value="12" selected>12 caracteres</option>
+                <option value="16">16 caracteres</option>
+                <option value="20">20 caracteres</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Complejidad:</label>
+            <div class="mayus">
+                <input type="checkbox" id="uppercase" checked>
+                <label for="uppercase">Incluir mayúsculas</label>
+            </div>
+            <div class="num">
+                <input type="checkbox" id="numbers" checked>
+                <label for="numbers">Incluir números</label>
+            </div>
+            <div class="sym">
+                <input type="checkbox" id="symbols" checked>
+                <label for="symbols">Incluir símbolos</label>
+            </div>
+        </div>
+        
+        <button id="generate-btn">Generar Contraseña</button>
+        
+        <div id="password-display">Tu contraseña aparecerá aquí</div>
+        
+        <div class="strength-meter" id="strength-meter"></div>
+        
+        <button id="copy-btn" class="copy-btn">Copiar Contraseña</button>
+    </div>
+
+    <script>
+        const letters = "abcdefghijklmnopqrstuvwxyz";
+        const numbers = "0123456789";
+        const symbols = "@#$%&*=+-^~><{}[]";
+
+        document.getElementById('generate-btn').addEventListener('click', generatePassword);
+        document.getElementById('copy-btn').addEventListener('click', copyPassword);
+
+        function generatePassword() {
+            const company = document.getElementById('company').value.trim().replace(/\s+/g, '_');
+            const length = parseInt(document.getElementById('length').value);
+            const useUppercase = document.getElementById('uppercase').checked;
+            const useNumbers = document.getElementById('numbers').checked;
+            const useSymbols = document.getElementById('symbols').checked;
+
+            let charset = letters;
+            if (useUppercase) charset += letters.toUpperCase();
+            if (useNumbers) charset += numbers;
+            if (useSymbols) charset += symbols;
+
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+
+            // Mezclar la contraseña
+            password = password.split('').sort(() => 0.5 - Math.random()).join('');
+            
+            // Si hay compañía, agregarla al final
+            if (company) {
+                password = password.slice(0, length - company.length) + company;
+            }
+
+            document.getElementById('password-display').textContent = password;
+            updateStrengthMeter(password);
+        }
+
+        function updateStrengthMeter(password) {
+            const meter = document.getElementById('strength-meter');
+            meter.className = 'strength-meter ';
+            
+            // Calcular fortaleza
+            let strength = 0;
+            if (password.length >= 8) strength++;
+            if (password.length >= 12) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            
+            if (strength <= 2) {
+                meter.classList.add('strength-weak');
+            } else if (strength <= 4) {
+                meter.classList.add('strength-medium');
+            } else {
+                meter.classList.add('strength-strong');
+            }
+        }
+
+        function copyPassword() {
+            const password = document.getElementById('password-display').textContent;
+            if (password && password !== "Tu contraseña aparecerá aquí") {
+                navigator.clipboard.writeText(password)
+                    .then(() => alert("¡Contraseña copiada al portapapeles!"))
+                    .catch(err => console.error('Error al copiar: ', err));
+            }
+        }
+    </script>
+</body>
+</html>

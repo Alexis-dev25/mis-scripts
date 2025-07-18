@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>matematicas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("fondo.png");
+            background-position: bottom;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: whitesmoke;
+        }
+        .container {
+            background-color: #151922;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .operation {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .input{
+            background-color: #151922;
+            border: 2px solid #fff;
+            color:#fff;
+            border-radius: 10px;
+        }
+        #resultado {
+            padding: 10px;
+            font-size: 18px;
+            width: 200px;
+            margin: 10px 0;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Juego Matemático</h1>
+        <div class="buttons">
+            <button onclick="iniciarJuego('facil')">Fácil</button>
+            <button onclick="iniciarJuego('medio')">Medio</button>
+            <button onclick="iniciarJuego('dificil')">Difícil</button>
+        </div>
+        <div id="juego" style="display: none;">
+            <div class="operation" id="operacion"></div>
+            <input type="number" id="resultado" placeholder="Tu respuesta" class="input">
+            <button onclick="verificarRespuesta()">Comprobar</button>
+            <button onclick="siguienteOperacion()">Siguiente</button>
+        </div>
+        <div class="score">
+            <p>Aciertos: <span id="aciertos">0</span></p>
+            <p>Intentos: <span id="intentos">0</span></p>
+        </div>
+    </div>
+    <script>
+        let numeros = [];
+        let simbolos = ["+", "-", "*"];
+        let respuestaCorrecta;
+        let aciertos = 0;
+        let intentos = 0;
+
+        function elegirAleatorio(lista) {
+            let indice = Math.floor(Math.random() * lista.length);
+            return lista[indice];
+        }
+
+        function iniciarJuego(dificultad) {
+            document.getElementById('juego').style.display = 'block';
+            if (dificultad === 'facil') {
+                numeros = Array.from({length: 10}, (_, i) => i + 1);
+            } else if (dificultad === 'medio') {
+                numeros = Array.from({length: 20}, (_, i) => i + 1);
+            } else if (dificultad === 'dificil') {
+                numeros = Array.from({length: 40}, (_, i) => i + 11);
+            }
+            siguienteOperacion();
+        }
+
+        function siguienteOperacion() {
+            let num1 = elegirAleatorio(numeros);
+            let num2 = elegirAleatorio(numeros);
+            let simbolo = elegirAleatorio(simbolos);
+            let operacion = `${num1} ${simbolo} ${num2}`;
+            respuestaCorrecta = eval(operacion);
+            document.getElementById('operacion').textContent = operacion;
+            document.getElementById('resultado').value = '';
+        }
+
+        function verificarRespuesta() {
+            let respuestaUsuario = parseInt(document.getElementById('resultado').value);
+            intentos++;
+            if (respuestaUsuario === respuestaCorrecta) {
+                aciertos++;
+                alert('¡Correcto!');
+            } else {
+                alert(`Incorrecto. La respuesta correcta era ${respuestaCorrecta}`);
+            }
+            document.getElementById('aciertos').textContent = aciertos;
+            document.getElementById('intentos').textContent = intentos;
+        }
+    </script>
+</body>
+</html>

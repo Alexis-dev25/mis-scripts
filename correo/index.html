@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Correo Electrónico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Generador de Correo Electrónico</h1>
+        <div class="form-container">
+            <div class="input-group">
+                <input type="text" id="nombre" placeholder="Nombre" class="input-field">
+            </div>
+            <div class="input-group">
+                <input type="text" id="apellido" placeholder="Apellido" class="input-field">
+            </div>
+            <div class="input-group">
+                <input type="number" id="numero" placeholder="Número" class="input-field">
+            </div>
+            <div class="select-group">
+                <select id="dominio" class="select-field">
+                    <option value="" disabled selected>Selecciona un dominio</option>
+                    <option value="@gmail.com">Gmail</option>
+                    <option value="@outlook.com">Outlook</option>
+                    <option value="@hotmail.com">Hotmail</option>
+                </select>
+            </div>
+            <button id="generar" class="generate-btn">Generar</button>
+        </div>
+        <div class="result-container hidden">
+            <div class="result-box">
+                <h3>Tu correo electrónico es:</h3>
+                <p id="correoGenerado" class="generated-email"></p>
+            </div>
+            <div class="result-box">
+                <h3>Contraseña sugerida:</h3>
+                <p id="passwordGenerada" class="generated-password"></p>
+            </div>
+    </div>
+    <div class="despedida">
+        <p>Contacto: alexisgutierrezfv@gmail.com</p>
+        <p>Hecho en html por Alexis, con ayuda de Microsoft Copilot</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

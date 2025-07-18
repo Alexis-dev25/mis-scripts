@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Agregar en el head -->
+    <meta name="color-scheme" content="light dark">
+    
+    <!-- Modificar el container para mejor soporte de modo oscuro -->
+    <div class="container" style="position: relative">
+        <h1>Piedra, Papel o Tijera</h1>
+        <div class="game-area">
+            <div class="choices">
+                <button class="choice" data-choice="piedra">✊</button>
+                <button class="choice" data-choice="papel">✋</button>
+                <button class="choice" data-choice="tijera">✌</button>
+            </div>
+            <div class="result-area">
+                <div class="players">
+                    <div class="player">
+                        <h2>Tú</h2>
+                        <div class="player-choice" id="player-choice">?</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="player">
+                        <h2>CPU</h2>
+                        <div class="player-choice" id="cpu-choice">?</div>
+                    </div>
+                </div>
+                <div id="result" class="result"></div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

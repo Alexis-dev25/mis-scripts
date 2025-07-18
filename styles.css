@@ -150,13 +150,6 @@ header {
     background-color: rgba(32, 21, 90, 0.493);
     padding: 10px 20px;
 }
-.correo-img {
-    margin-top: 20px;
-    width: 300px;
-    height: auto;
-    max-width: 600px;
-    border-radius: 7px;
-}
 .password {
     margin-top: 20px;
     background-color: rgba(32, 21, 90, 0.493);
