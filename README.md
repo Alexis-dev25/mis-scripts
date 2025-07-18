@@ -10,7 +10,7 @@ Este es un pequeño sitio web donde comparto algunos scripts que he creado en Py
 
 - `index.html`: Página principal
 - `styles.css`: Estilos del sitio
-- `*.py`: Scripts en Python
+- `JavaScript`: para sitios secundarios
 
 ---
 
